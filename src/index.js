@@ -25,7 +25,7 @@ class Option extends React.Component{
           <option value="all">All</option> 
           <option value="cars">Cars</option>
           <option value="trucks">Trucks</option>
-          <option value="convertibles">Ahhhhh</option>
+          <option value="convertibles">Ahhhh</option>
         </select>
       </div>
     )
