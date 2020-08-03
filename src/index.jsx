@@ -6,7 +6,7 @@ class Welcome extends React.Component{
     return (
       <div>
         <h1>Welcome to Reach Transportation</h1>
-        <p>The best place to buy vehicles online </p>
+        <p>The best place to buy vehilcles online </p>
       </div>
     )
   }
@@ -182,4 +182,4 @@ class Webpage extends React.Component{
     )
   }
 }
-ReactDOM.render(<Webpage />, document.getElementById('root'));
+// ReactDOM.render(<Webpage />, document.getElementById('root'));
