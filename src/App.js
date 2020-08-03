@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Welcome from './welcome.js';
-import Option from './option.js';
-import Car from './car.js';
-import Truck from './truck.js';
-import Convertible from './convertible.js';
+import Welcome from './Components/welcome.js';
+import Option from './Components/option.js';
+import Car from './Components/car.js';
+import Truck from './Components/truck.js';
+import Convertible from './Components/convertible.js';
 
 export default class App extends React.Component{
   render(){
