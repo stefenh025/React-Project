@@ -1,10 +1,15 @@
 import React from 'react';
 
 class Car extends React.Component{
+  constructor(props){
+    super(props);
+  }
   render(){
+    var typeSelection = this.props.selected;
     return(
       <div id="cars">
     <h1>Cars</h1>
+    {typeSelection}
     <table>
       <tr>
         <th>Year Model</th>
