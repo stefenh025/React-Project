@@ -32,7 +32,7 @@ class Option extends React.Component{
           <option value="trucks">Trucks</option>
           <option value="convertibles">Convertibles</option>
         </select>
-        <Vehicle selected={this.state.selected} newOnly={this.state.newOnly}/>
+        <Vehicle selected={this.state.selected} newOnly={this.state.newOnly} handleBuyClick={this.props.handleBuyClick}/>
       </div>
     )
   }

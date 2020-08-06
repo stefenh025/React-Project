@@ -18,7 +18,7 @@ class Convertible extends React.Component{
       <tr>
         <td>2017 M</td>
         <td>$2500</td>
-        <td><button type="button">Buy now</button></td>
+        <td><button type="button" value="2500" onClick={e => this.props.handleBuyClick(e.target.value)}>Buy now</button></td>
       </tr>
       </tbody>
     </table>
@@ -41,7 +41,7 @@ class Convertible extends React.Component{
       <tr>
         <td>2009 F</td>
         <td>$2000</td>
-        <td><button type="button">Buy now</button></td>
+        <td><button type="button" value="2000" onClick={e => this.props.handleBuyClick(e.target.value)}>Buy now</button></td>
       </tr>
       </tbody>
     </table>
@@ -57,7 +57,7 @@ class Convertible extends React.Component{
       <tr>
         <td>2010 G</td>
         <td>$6000</td>
-        <td><button type="button">Buy now</button></td>
+        <td><button type="button" value="6000" onClick={e => this.props.handleBuyClick(e.target.value)}>Buy now</button></td>
       </tr>
       </tbody>
     </table>
@@ -73,7 +73,7 @@ class Convertible extends React.Component{
       <tr>
         <td>2012 H</td>
         <td>$12500</td>
-        <td><button type="button">Buy now</button></td>
+        <td><button type="button" value="12500" onClick={e => this.props.handleBuyClick(e.target.value)}>Buy now</button></td>
       </tr>
       </tbody>
     </table>
@@ -89,7 +89,7 @@ class Convertible extends React.Component{
       <tr>
         <td>2017 M</td>
         <td>$2500</td>
-        <td><button type="button">Buy now</button></td>
+        <td><button type="button" value="2500" onClick={e => this.props.handleBuyClick(e.target.value)}>Buy now</button></td>
       </tr>
       </tbody>
     </table>

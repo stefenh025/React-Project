@@ -9,17 +9,17 @@ export default class Vehicle extends React.Component{
     
     if (carType === 'cars'){
       return(
-        <Car newOnly={this.props.newOnly}/>
+        <Car newOnly={this.props.newOnly} handleBuyClick={this.props.handleBuyClick}/>
       )
     }
     else if(carType === 'trucks'){
       return(
-        <Truck newOnly={this.props.newOnly}/>
+        <Truck newOnly={this.props.newOnly} handleBuyClick={this.props.handleBuyClick}/>
       )
     }
     else if(carType === 'convertibles'){
       return(
-        <Convertible newOnly={this.props.newOnly}/>
+        <Convertible newOnly={this.props.newOnly} handleBuyClick={this.props.handleBuyClick}/>
       )
     }
     else{

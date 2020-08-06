@@ -18,7 +18,7 @@ class Truck extends React.Component{
         <tr>
           <td>2014 D</td>
           <td>18000</td>
-          <td><button type="button">Buy now</button></td>
+          <td><button type="button" value="18000" onClick={e => this.props.handleBuyClick(e.target.value)}>Buy now</button></td>
         </tr>
         </tbody>
       </table>
@@ -41,7 +41,7 @@ class Truck extends React.Component{
         <tr>
           <td>2014 D</td>
           <td>18000</td>
-          <td><button type="button">Buy now</button></td>
+          <td><button type="button" value="18000" onClick={e => this.props.handleBuyClick(e.target.value)}>Buy now</button></td>
         </tr>
         </tbody>
       </table>
@@ -57,7 +57,7 @@ class Truck extends React.Component{
         <tr>
           <td>2013 E</td>
           <td>$5200</td>
-          <td><button type="button">Buy now</button></td>
+          <td><button type="button" value="5200" onClick={e => this.props.handleBuyClick(e.target.value)}>Buy now</button></td>
         </tr>
         </tbody>
       </table>
