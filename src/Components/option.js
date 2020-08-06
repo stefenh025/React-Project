@@ -1,34 +1,38 @@
 import React from 'react';
-import Car from './car.js';
+import Vehicle from '../vehicle.js';
 
 class Option extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       selected: '',
+      newOnly: false,
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
   }
   handleChange(e){
-    console.log(e.target.value);
     this.setState({selected: e.target.value});
+  }
+  handleCheck(e){
+    this.setState({newOnly : !(this.state.newOnly)});
 
   }
   render(){
     return(
       <div>
         <h1>Choose Options</h1>
-        <label for="new1"> New Only</label>
-        <input type="checkbox" id="new1" name="newOnly"/>
+        <label htmlFor="new1"> New Only</label>
+        <input type="checkbox" id="new1" name="newOnly" onClick={this.handleCheck}/>
         <br/>
-        <label for="carType"> Select Type</label>
+        <label htmlFor="carType"> Select Type</label>
         <select name="carType" id="cars" onChange={this.handleChange}>
           <option value="all">All</option> 
           <option value="cars">Cars</option>
           <option value="trucks">Trucks</option>
           <option value="convertibles">Convertibles</option>
         </select>
-        <Car selected={this.state.selected} />
+        <Vehicle selected={this.state.selected} newOnly={this.state.newOnly}/>
       </div>
     )
   }

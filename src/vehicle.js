@@ -4,17 +4,26 @@ import Truck from './Components/truck.js';
 import Convertible from './Components/convertible.js';
 
 export default class Vehicle extends React.Component{
-  constructor(props){
-    super(props);
-
-  }
   render(){
-    return(
-      <div>
-      <Car />
-      <Truck />
-      <Convertible />
-      </div>
-    )
+    let carType = this.props.selected;
+    
+    if (carType === 'cars'){
+      return(
+        <Car newOnly={this.props.newOnly}/>
+      )
+    }
+    else if(carType === 'trucks'){
+      return(
+        <Truck newOnly={this.props.newOnly}/>
+      )
+    }
+    else if(carType === 'convertibles'){
+      return(
+        <Convertible newOnly={this.props.newOnly}/>
+      )
+    }
+    else{
+      return null;
+    }
   }
 }
