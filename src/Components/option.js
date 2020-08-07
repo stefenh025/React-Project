@@ -18,9 +18,10 @@ class Option extends React.Component{
     this.setState({newOnly : !(this.state.newOnly)});
 
   }
+  
   render(){
     return(
-      <div>
+      <div>        
         <h1>Choose Options</h1>
         <label htmlFor="new1"> New Only</label>
         <input type="checkbox" id="new1" name="newOnly" onClick={this.handleCheck}/>
