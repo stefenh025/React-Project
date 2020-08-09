@@ -22,8 +22,10 @@ export default class Header extends React.Component{
     return(
       <div>
         <Welcome />
+        <div class="container">
         <Option handleBuyClick={this.handleBuyClick}/>
         <Total totalPrice={this.state.totalPrice}/>
+        </div>
       </div>
     )
   }

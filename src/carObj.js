@@ -19,7 +19,7 @@ export const car = [
 export const truck = [
   {
     year: 2014,
-    mode: 'D',
+    model: 'D',
     price: 18000,
   },
   {
@@ -36,8 +36,8 @@ export const convertible = [
     price: 2000,
   },
   {
-    year:2010,
-    mode: 'G',
+    year: 2010,
+    model: 'G',
     price: 6000,
   },
   {

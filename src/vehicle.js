@@ -1,16 +1,21 @@
 import React from 'react';
-// import Car from './Components/car.js';
-// import Truck from './Components/truck.js';
-// import Convertible from './Components/convertible.js';
 
 import Car from './Components/carTemplate.js';
 let data = require('./carObj.js');
-console.log(data.car);
 
 export default class Vehicle extends React.Component{
   render(){
     let carType = this.props.selected;
-    if (carType === 'cars'){
+    if(carType === 'all'){
+      return(
+        <div>
+        <Car car={data.car} newOnly={this.props.newOnly} handleBuyClick={this.props.handleBuyClick} name="car"/>
+        <Car car={data.truck} newOnly={this.props.newOnly} handleBuyClick={this.props.handleBuyClick} name="truck"/>
+        <Car car={data.convertible} newOnly={this.props.newOnly} handleBuyClick={this.props.handleBuyClick} name="convertible"/>
+        </div>
+      )
+    }
+    else if (carType === 'cars'){
       return(
         <div>
         <Car car={data.car} newOnly={this.props.newOnly} handleBuyClick={this.props.handleBuyClick}/>

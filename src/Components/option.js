@@ -5,7 +5,7 @@ class Option extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      selected: '',
+      selected: 'all',
       newOnly: false,
     }
     this.handleChange = this.handleChange.bind(this);
@@ -21,18 +21,22 @@ class Option extends React.Component{
   
   render(){
     return(
-      <div>        
+      <div class="fontStyle">
+        <div class="border-bottom pb-3">
         <h1>Choose Options</h1>
-        <label htmlFor="new1"> New Only</label>
+        <label htmlFor="new1"> New Only </label>
         <input type="checkbox" id="new1" name="newOnly" onClick={this.handleCheck}/>
         <br/>
-        <label htmlFor="carType"> Select Type</label>
-        <select name="carType" id="cars" onChange={this.handleChange}>
+        <div class="dropdown">
+          Sort by Type
+        <select class="btn dropdown-toggle" name="carType" id="cars" onChange={this.handleChange}>
           <option value="all">All</option> 
           <option value="cars">Cars</option>
           <option value="trucks">Trucks</option>
           <option value="convertibles">Convertibles</option>
         </select>
+        </div>
+        </div>        
         <Vehicle selected={this.state.selected} newOnly={this.state.newOnly} handleBuyClick={this.props.handleBuyClick}/>
       </div>
     )
