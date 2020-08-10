@@ -6,7 +6,7 @@ import './App.css';
 export default class App extends React.Component{
   render(){
     return(
-      <div class="container-fluid px-0 bgColor">
+      <div className="container-fluid px-0 bgColor h-100">
         <Header />
       </div>
     )

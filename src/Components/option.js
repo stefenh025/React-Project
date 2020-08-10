@@ -21,15 +21,15 @@ class Option extends React.Component{
   
   render(){
     return(
-      <div class="fontStyle">
-        <div class="border-bottom pb-3">
+      <div className="fontStyle">
+        <div className="border-bottom pb-3">
         <h1>Choose Options</h1>
         <label htmlFor="new1"> New Only </label>
         <input type="checkbox" id="new1" name="newOnly" onClick={this.handleCheck}/>
         <br/>
-        <div class="dropdown">
+        <div className="dropdown">
           Sort by Type
-        <select class="btn dropdown-toggle" name="carType" id="cars" onChange={this.handleChange}>
+        <select className="btn dropdown-toggle" name="carType" id="cars" onChange={this.handleChange}>
           <option value="all">All</option> 
           <option value="cars">Cars</option>
           <option value="trucks">Trucks</option>
