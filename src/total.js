@@ -9,7 +9,7 @@ export default class Total extends React.Component{
         <h3>Shopping List:</h3>
         <br></br>
         {arr.map((car, index) => (
-          <p>
+          <p key={index}>
             {car.type} {car.year} {car.model} for {car.price}
           </p>
         ))}
