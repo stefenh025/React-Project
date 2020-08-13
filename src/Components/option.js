@@ -1,5 +1,6 @@
 import React from 'react';
 import Vehicle from '../vehicle.js';
+import AddListing from './addListing.js';
 
 class Option extends React.Component{
   constructor(props){
@@ -16,7 +17,6 @@ class Option extends React.Component{
   }
   handleCheck(e){
     this.setState({newOnly : !(this.state.newOnly)});
-
   }
   
   render(){
@@ -35,6 +35,7 @@ class Option extends React.Component{
           <option value="trucks">Trucks</option>
           <option value="convertibles">Convertibles</option>
         </select>
+        <AddListing/>
         </div>
         </div>        
         <Vehicle selected={this.state.selected} newOnly={this.state.newOnly} handleBuyClick={this.props.handleBuyClick}/>

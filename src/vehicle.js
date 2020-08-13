@@ -32,7 +32,6 @@ export default class Vehicle extends React.Component{
   }
   render(){
     let carType = this.props.selected;
-    //let carLen, truckLen, convertibleLen;
     let carList = data.car;
     let truckList = data.truck;
     let convertibleList = data.convertible;
@@ -73,9 +72,6 @@ export default class Vehicle extends React.Component{
       })
     }
     if(carType === 'all'){
-      // carLen = data.car.length;
-      // truckLen = data.truck.length;
-      // convertibleLen = data.convertible.length;
       return(
         <div>
         <Car 
