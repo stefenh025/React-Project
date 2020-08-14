@@ -11,7 +11,7 @@ class AddListing extends React.Component{
   }
   showModal(e){
     this.setState({
-      show: true,
+      show: !(this.state.show),
     });
   }
   render(){
@@ -20,7 +20,7 @@ class AddListing extends React.Component{
         <button type="button" className="btn btn-dark" onClick={this.showModal}>
           Add Listing <span className="badge badge-light">+</span>
         </button>
-        <Modal show={this.state.show}/>
+        <Modal show={this.state.show} showModal={this.showModal} handleNewListing={this.props.handleNewListing}/>
       </div>
     )
   }

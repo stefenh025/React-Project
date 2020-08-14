@@ -29,7 +29,7 @@ export default class Car extends React.Component{
                 <th className="col-3">Model</th>
                 <th className="col-3">
                   Price 
-                  <button className="badge" onClick={this.handleSortClick}>Sort</button>
+                  <button className="badge badge-primary" onClick={this.handleSortClick}>Sort</button>
                   </th>
                 <th className="col-3">Buy</th>
               </tr>

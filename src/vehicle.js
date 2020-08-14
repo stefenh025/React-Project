@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Car from './Components/carTemplate.js';
-let data = require('./carObj.js');
 
 export default class Vehicle extends React.Component{
   constructor(props){
@@ -10,6 +9,7 @@ export default class Vehicle extends React.Component{
       sortCars: false,
       sortTrucks: false,
       sortConvertibles: false,
+      sortNewAdd: false,
     }
     this.toggleSort = this.toggleSort.bind(this);
   }
@@ -29,17 +29,24 @@ export default class Vehicle extends React.Component{
         sortConvertibles: !(this.state.sortConvertibles),
       })
     }
+    else if (sortName === "newAdd"){
+      this.setState({
+        sortNewAdd: !(this.state.newAdd),
+      })
+    }
   }
   render(){
     let carType = this.props.selected;
-    let carList = data.car;
-    let truckList = data.truck;
-    let convertibleList = data.convertible;
+    let carList = this.props.data.car;
+    let truckList = this.props.data.truck;
+    let convertibleList = this.props.data.convertible;
+    let newAdd = this.props.data.newAdd;
 
     if (this.props.newOnly){
       carList = (carList.filter(car => car.newCar === true));
       truckList = (truckList.filter(truck => truck.newCar === true));
-      convertibleList = (convertibleList.filter(truck => truck.newCar === true));
+      convertibleList = (convertibleList.filter(convertible => convertible.newCar === true));
+      newAdd = (newAdd.filter(newAddCar => newAddCar.newCar === true));
     }
     if (this.state.sortCars){
       carList = carList.sort(function(a,b){
@@ -71,6 +78,17 @@ export default class Vehicle extends React.Component{
         return b.price - a.price;
       })
     }
+    if (this.state.sortNewAdd){
+      newAdd = newAdd.sort(function(a,b){
+        return a.price - b.price;
+      })
+    }
+    if (!(this.state.sortNewAdd)){
+      newAdd = newAdd.sort(function(a,b){
+        return b.price - a.price;
+      })
+    }
+    console.log(this.props.data.newAdd);
     if(carType === 'all'){
       return(
         <div>
@@ -87,14 +105,21 @@ export default class Vehicle extends React.Component{
           newOnly={this.props.newOnly} 
           handleBuyClick={this.props.handleBuyClick} 
           toggleSort={this.toggleSort} 
-          sortCars={this.state.sortCars} />
+          sortCars={this.state.sortTrucks} />
         <Car 
           car={convertibleList} 
           name="convertible" 
           newOnly={this.props.newOnly} 
           handleBuyClick={this.props.handleBuyClick} 
           toggleSort={this.toggleSort} 
-          sortCars={this.state.sortCars}/>
+          sortCars={this.state.sortConvertibles}/>
+        <Car 
+          car={newAdd} 
+          name="newest addition" 
+          newOnly={this.props.newOnly} 
+          handleBuyClick={this.props.handleBuyClick} 
+          toggleSort={this.toggleSort} 
+          sortCars={this.state.sortNewAdd}/>
         </div>
       )
     }

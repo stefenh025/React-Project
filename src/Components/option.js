@@ -1,6 +1,7 @@
 import React from 'react';
 import Vehicle from '../vehicle.js';
 import AddListing from './addListing.js';
+let data = require('../carObj.js');
 
 class Option extends React.Component{
   constructor(props){
@@ -8,9 +9,11 @@ class Option extends React.Component{
     this.state = {
       selected: 'all',
       newOnly: false,
+      newListings: 0,
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.handleNewListing = this.handleNewListing.bind(this);
   }
   handleChange(e){
     this.setState({selected: e.target.value});
@@ -18,7 +21,20 @@ class Option extends React.Component{
   handleCheck(e){
     this.setState({newOnly : !(this.state.newOnly)});
   }
-  
+  handleNewListing(nYear, nPrice, nModel, nType, nNewCar){
+    this.setState({
+      newListings: (this.state.newListings + 1),
+    });
+    let newListing = {
+      year: nYear,
+      price: nPrice,
+      model: nModel,
+      type: nType,
+      newCar: nNewCar,
+    }
+    data.newAdd.push(newListing);
+    console.log(nNewCar);
+  }
   render(){
     return(
       <div className="fontStyle">
@@ -35,10 +51,10 @@ class Option extends React.Component{
           <option value="trucks">Trucks</option>
           <option value="convertibles">Convertibles</option>
         </select>
-        <AddListing/>
+        <AddListing handleNewListing={this.handleNewListing}/>
         </div>
         </div>        
-        <Vehicle selected={this.state.selected} newOnly={this.state.newOnly} handleBuyClick={this.props.handleBuyClick}/>
+        <Vehicle selected={this.state.selected} newOnly={this.state.newOnly} handleBuyClick={this.props.handleBuyClick} data={data}/>
       </div>
     )
   }

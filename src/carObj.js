@@ -69,7 +69,9 @@ export const convertible = [
     newCar: true,
   }
 ]
+export const newAdd = [
 
+]
 export const buyList = [
 
 ]

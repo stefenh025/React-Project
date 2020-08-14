@@ -28,7 +28,6 @@ export default class Header extends React.Component{
       type: sType,
     }
     data.buyList.push(newVehicle);
-    console.log(data.buyList);
   }
   render(){
     return(
