@@ -13,14 +13,20 @@ export default class Modal extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleMultiField = this.handleMultiField.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.formValidity = this.formValidity.bind(this);
   }
   handleSubmit(e){
-    let nYear = this.state.year;
-    let nModel = this.state.model;
-    let nPrice = this.state.price;
-    let nType = this.state.type;
-    let nNewCar = this.state.newCar;
-    this.props.handleNewListing(nYear, nModel, nPrice, nType, nNewCar);
+    if(this.formValidity()){
+      let nYear = this.state.year;
+      let nModel = this.state.model.toUpperCase();
+      let nPrice = this.state.price;
+      let nType = this.state.type;
+      let nNewCar = this.state.newCar;
+      this.props.handleNewListing(nYear, nModel, nPrice, nType, nNewCar);
+    }
+    else{
+      return false;
+    }
   }
   handleMultiField(e){
     let whichEntry = e.target.name;
@@ -28,7 +34,6 @@ export default class Modal extends React.Component{
     this.setState({
       [whichEntry] : whichValue,
     });
-    console.log(this.state.newCar);
   }
   handleSelect(e){
     if (e.target.value === 'true'){
@@ -40,6 +45,18 @@ export default class Modal extends React.Component{
       this.setState({
         newCar: false,
       })
+    }
+  }
+  formValidity(){
+    let checkYear = document.getElementById("inputYear").checkValidity();
+    let checkModel = document.getElementById("inputModel").checkValidity();
+    let checkPrice = document.getElementById("inputPrice").checkValidity(); 
+    let checkType = document.getElementById("inputType").checkValidity();
+    if(checkModel && checkPrice && checkType && checkYear){
+      return true;
+    }
+    else{
+      return false;
     }
   }
   render(){
@@ -66,7 +83,8 @@ export default class Modal extends React.Component{
                       step="1" 
                       placeholder="Year only" 
                       name="year"
-                      onChange={this.handleMultiField}>
+                      onChange={this.handleMultiField}
+                      required>
                     </input>
                   <label htmlFor="inputModel">Model:</label>
                     <input 
@@ -76,7 +94,8 @@ export default class Modal extends React.Component{
                       maxLength="1" 
                       placeholder="Letter only" 
                       name="model"
-                      onChange={this.handleMultiField}>
+                      onChange={this.handleMultiField}
+                      required>
                     </input>
                   <label htmlFor="inputPrice">Price:</label>
                     <input 
@@ -85,16 +104,18 @@ export default class Modal extends React.Component{
                     id="inputPrice" 
                     placeholder="Numbers only" 
                     name="price"
-                    onChange={this.handleMultiField}>
+                    onChange={this.handleMultiField}
+                    required>
                     </input>
                   <label htmlFor="inputType">Type of Vehicle:</label>
                     <input 
                     type="text" 
-                    className="form-control" 
+                    className="form-control text-capitalize" 
                     id="inputType" 
                     placeholder="Car/Truck/Convertible" 
                     name="type"
-                    onChange={this.handleMultiField}>
+                    onChange={this.handleMultiField}
+                    required>
                     </input>
                   <label htmlFor="inputNew">Is it new?</label>
                   <select id="inputNew" className="form-control" name="newCar" onChange={this.handleSelect}>
@@ -103,7 +124,8 @@ export default class Modal extends React.Component{
                   </select>
                 </div>
                   <div className="float-right">
-                  <button type="reset" onClick={this.props.showModal} className="btn btn-danger mx-1">Clear</button>
+                  <button type="reset" className="btn btn-warning mx-1">Clear</button>
+                  <button type="button" onClick={this.props.showModal} className="btn btn-danger mx-1">Close</button>
                   </div>
                 </form>
                 <button type="button" onClick={this.handleSubmit} className="btn btn-success mx-1">Save Changes</button>

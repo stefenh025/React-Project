@@ -29,9 +29,9 @@ export default class Vehicle extends React.Component{
         sortConvertibles: !(this.state.sortConvertibles),
       })
     }
-    else if (sortName === "newAdd"){
+    else if (sortName === "newest addition"){
       this.setState({
-        sortNewAdd: !(this.state.newAdd),
+        sortNewAdd: !(this.state.sortNewAdd),
       })
     }
   }
@@ -144,7 +144,7 @@ export default class Vehicle extends React.Component{
           newOnly={this.props.newOnly} 
           handleBuyClick={this.props.handleBuyClick} 
           toggleSort={this.toggleSort} 
-          sortCars={this.state.sortCars} />
+          sortCars={this.state.sortTrucks} />
       )
     }
     else if(carType === 'convertibles'){
@@ -155,7 +155,7 @@ export default class Vehicle extends React.Component{
           newOnly={this.props.newOnly} 
           handleBuyClick={this.props.handleBuyClick} 
           toggleSort={this.toggleSort} 
-          sortCars={this.state.sortCars}/>
+          sortCars={this.state.sortConvertibles}/>
       )
     }
     else{

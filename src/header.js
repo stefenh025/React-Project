@@ -31,7 +31,7 @@ export default class Header extends React.Component{
   }
   render(){
     return(
-      <div>
+      <div className="h-100">
         <Welcome />
         <div className="container">
         <Option handleBuyClick={this.handleBuyClick}/>

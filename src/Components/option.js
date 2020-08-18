@@ -21,14 +21,14 @@ class Option extends React.Component{
   handleCheck(e){
     this.setState({newOnly : !(this.state.newOnly)});
   }
-  handleNewListing(nYear, nPrice, nModel, nType, nNewCar){
+  handleNewListing(nYear, nModel, nPrice, nType, nNewCar){
     this.setState({
       newListings: (this.state.newListings + 1),
     });
     let newListing = {
       year: nYear,
-      price: nPrice,
       model: nModel,
+      price: nPrice,
       type: nType,
       newCar: nNewCar,
     }
